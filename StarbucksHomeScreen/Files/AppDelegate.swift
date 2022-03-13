@@ -26,14 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let giftVC = GiftViewController()
         let storeVC = StoreViewController()
         
-        let homeNC = makeNavigationController(rootViewController: homeVC)
         let scanNC = makeNavigationController(rootViewController: scanVC)
         let orderNC = makeNavigationController(rootViewController: orderVC)
         let giftNC = makeNavigationController(rootViewController: giftVC)
         let storeNC = makeNavigationController(rootViewController: storeVC)
         
         let tabBarController = UITabBarController()
-        tabBarController.viewControllers = [homeNC, scanNC, orderNC,
+        tabBarController.viewControllers = [homeVC, scanNC, orderNC,
                                             giftNC, storeNC]
         
         window?.rootViewController = tabBarController
