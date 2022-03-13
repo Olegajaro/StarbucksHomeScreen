@@ -12,8 +12,12 @@ class HomeViewController: StarbucksViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Home"
+        setupNavBar()
         setupTabBarImage(imageName: "house.fill", title: "Home")
+    }
+    
+    private func setupNavBar() {
+        navigationController?.navigationBar.topItem?.title = "Good afternoon, Oleg ☀️"
     }
 }
 
