@@ -10,6 +10,8 @@ import UIKit
 class HomeViewController: StarbucksViewController {
 
     let headerView = HomeHeaderView()
+    var headerViewTopConstraint: NSLayoutConstraint?
+    
     let tableView = UITableView()
     
     let cellID = "cellID"
@@ -40,13 +42,14 @@ class HomeViewController: StarbucksViewController {
         tableView.delegate = self
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.sectionHeaderTopPadding = 0
     }
 }
 
 extension HomeViewController {
     private func style() {
         headerView.translatesAutoresizingMaskIntoConstraints = false
-        headerView.backgroundColor = .systemTeal
+        headerView.backgroundColor = .systemBackground
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -55,8 +58,10 @@ extension HomeViewController {
         view.addSubview(headerView)
         view.addSubview(tableView)
         
+        headerViewTopConstraint = headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        
         NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerViewTopConstraint!,
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
@@ -107,5 +112,23 @@ extension HomeViewController: UITableViewDelegate {
         heightForRowAt indexPath: IndexPath
     ) -> CGFloat {
         300
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let y = scrollView.contentOffset.y
+        
+        let swipingDown = y <= 0
+        let shouldSnap = y > 30
+        let labelHeight = headerView.greeting.frame.height + 16 // label + spacer (102)
+        
+        UIView.animate(withDuration: 0.3) {
+            self.headerView.greeting.alpha = swipingDown ? 1.0 : 0.0
+        }
+        
+        UIViewPropertyAnimator.runningPropertyAnimator(
+            withDuration: 0.3, delay: 0, options: []) {
+                self.headerViewTopConstraint?.constant = shouldSnap ? -labelHeight : 0
+                self.view.layoutIfNeeded()
+            }
     }
 }

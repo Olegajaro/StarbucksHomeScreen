@@ -33,9 +33,7 @@ extension HomeHeaderView {
         greeting.numberOfLines = 0
         greeting.lineBreakMode = .byWordWrapping
         
-        inboxButton.translatesAutoresizingMaskIntoConstraints = false
-        inboxButton.setTitleColor(.label, for: .normal)
-        inboxButton.setTitle("Inbox", for: .normal)
+        makeInboxButton()
     }
     
     private func layout() {
@@ -73,5 +71,19 @@ extension HomeHeaderView {
                 multiplier: 1
             )
         ])
+    }
+}
+
+extension HomeHeaderView {
+    private func makeInboxButton() {
+        inboxButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        let configuration = UIImage.SymbolConfiguration(scale: .large)
+        let image = UIImage(systemName: "envelope",
+                            withConfiguration: configuration)
+        
+        inboxButton.setImage(image, for: .normal)
+        inboxButton.setTitle(" Inbox", for: .normal)
+        inboxButton.tintColor = .secondaryLabel
     }
 }
