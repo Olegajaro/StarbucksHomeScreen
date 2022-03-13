@@ -56,15 +56,39 @@
 		106FEA3927DDEE9100F9C6A1 /* StarbucksHomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				1079C6CA27DE0FBC006F3A21 /* Files */,
+				1079C6CB27DE0FC3006F3A21 /* Home */,
+				1079C6CC27DE0FD9006F3A21 /* Resources */,
+			);
+			path = StarbucksHomeScreen;
+			sourceTree = "<group>";
+		};
+		1079C6CA27DE0FBC006F3A21 /* Files */ = {
+			isa = PBXGroup;
+			children = (
 				106FEA3A27DDEE9100F9C6A1 /* AppDelegate.swift */,
-				106FEA3E27DDEE9100F9C6A1 /* HomeViewController.swift */,
 				108FCC6A27DDF02900867467 /* StarbucksViewControllers.swift */,
+				108FCC6C27DDF66600867467 /* Factories.swift */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		1079C6CB27DE0FC3006F3A21 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				106FEA3E27DDEE9100F9C6A1 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1079C6CC27DE0FD9006F3A21 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				106FEA4327DDEE9200F9C6A1 /* Assets.xcassets */,
 				106FEA4527DDEE9200F9C6A1 /* LaunchScreen.storyboard */,
 				106FEA4827DDEE9200F9C6A1 /* Info.plist */,
-				108FCC6C27DDF66600867467 /* Factories.swift */,
 			);
-			path = StarbucksHomeScreen;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
