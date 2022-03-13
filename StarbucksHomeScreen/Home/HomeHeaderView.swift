@@ -9,6 +9,7 @@ import UIKit
 
 class HomeHeaderView: UIView {
     
+    // MARK: - UIElements
     let greeting = UILabel()
     let inboxButton = UIButton(type: .system)
     
@@ -25,6 +26,7 @@ class HomeHeaderView: UIView {
 
 }
 
+// MARK: - Style and Layout functions
 extension HomeHeaderView {
     private func style() {
         greeting.translatesAutoresizingMaskIntoConstraints = false
@@ -74,6 +76,7 @@ extension HomeHeaderView {
     }
 }
 
+// MARK: - Factories
 extension HomeHeaderView {
     private func makeInboxButton() {
         inboxButton.translatesAutoresizingMaskIntoConstraints = false

@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: StarbucksViewController {
 
+    // MARK: - UIElements
     let headerView = HomeHeaderView()
     var headerViewTopConstraint: NSLayoutConstraint?
     
@@ -23,6 +24,7 @@ class HomeViewController: StarbucksViewController {
         "Uplifting"
     ]
     
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +35,7 @@ class HomeViewController: StarbucksViewController {
         layout()
     }
     
+    // MARK: - Setup TableView
     private func setupNavBar() {
         navigationController?.navigationBar.topItem?.title = "Good afternoon, Oleg ☀️"
     }
@@ -46,6 +49,7 @@ class HomeViewController: StarbucksViewController {
     }
 }
 
+// MARK: - Style and Layout function
 extension HomeViewController {
     private func style() {
         headerView.translatesAutoresizingMaskIntoConstraints = false
@@ -58,6 +62,7 @@ extension HomeViewController {
         view.addSubview(headerView)
         view.addSubview(tableView)
         
+        // headerView constraint
         headerViewTopConstraint = headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         
         NSLayoutConstraint.activate([
@@ -66,6 +71,7 @@ extension HomeViewController {
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
+        // tableView constraint
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -75,6 +81,7 @@ extension HomeViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension HomeViewController: UITableViewDataSource {
     func tableView(
         _ tableView: UITableView,
@@ -99,6 +106,7 @@ extension HomeViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {
     func tableView(
         _ tableView: UITableView,
@@ -114,6 +122,7 @@ extension HomeViewController: UITableViewDelegate {
         300
     }
     
+    // Collapsible header
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y = scrollView.contentOffset.y
         
