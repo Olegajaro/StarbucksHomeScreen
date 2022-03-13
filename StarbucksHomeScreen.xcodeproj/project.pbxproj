@@ -8,18 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		106FEA3B27DDEE9100F9C6A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106FEA3A27DDEE9100F9C6A1 /* AppDelegate.swift */; };
-		106FEA3F27DDEE9100F9C6A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106FEA3E27DDEE9100F9C6A1 /* ViewController.swift */; };
+		106FEA3F27DDEE9100F9C6A1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106FEA3E27DDEE9100F9C6A1 /* HomeViewController.swift */; };
 		106FEA4427DDEE9200F9C6A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 106FEA4327DDEE9200F9C6A1 /* Assets.xcassets */; };
 		106FEA4727DDEE9200F9C6A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106FEA4527DDEE9200F9C6A1 /* LaunchScreen.storyboard */; };
+		108FCC6B27DDF02900867467 /* StarbucksViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108FCC6A27DDF02900867467 /* StarbucksViewControllers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		106FEA3727DDEE9100F9C6A1 /* StarbucksHomeScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarbucksHomeScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		106FEA3A27DDEE9100F9C6A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		106FEA3E27DDEE9100F9C6A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		106FEA3E27DDEE9100F9C6A1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		106FEA4327DDEE9200F9C6A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		106FEA4627DDEE9200F9C6A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		106FEA4827DDEE9200F9C6A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		108FCC6A27DDF02900867467 /* StarbucksViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarbucksViewControllers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +55,8 @@
 			isa = PBXGroup;
 			children = (
 				106FEA3A27DDEE9100F9C6A1 /* AppDelegate.swift */,
-				106FEA3E27DDEE9100F9C6A1 /* ViewController.swift */,
+				106FEA3E27DDEE9100F9C6A1 /* HomeViewController.swift */,
+				108FCC6A27DDF02900867467 /* StarbucksViewControllers.swift */,
 				106FEA4327DDEE9200F9C6A1 /* Assets.xcassets */,
 				106FEA4527DDEE9200F9C6A1 /* LaunchScreen.storyboard */,
 				106FEA4827DDEE9200F9C6A1 /* Info.plist */,
@@ -131,7 +134,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				106FEA3F27DDEE9100F9C6A1 /* ViewController.swift in Sources */,
+				108FCC6B27DDF02900867467 /* StarbucksViewControllers.swift in Sources */,
+				106FEA3F27DDEE9100F9C6A1 /* HomeViewController.swift in Sources */,
 				106FEA3B27DDEE9100F9C6A1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

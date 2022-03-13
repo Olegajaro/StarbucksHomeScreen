@@ -19,7 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
-        window?.rootViewController = ViewController()
+        
+        let homeVC = HomeViewController()
+        let scanVC = ScanViewController()
+        let orderVC = OrderViewController()
+        let giftVC = GiftViewController()
+        let storeVC = StoreViewController()
+        
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [homeVC, scanVC, orderVC,
+                                            giftVC, storeVC]
+        
+        window?.rootViewController = tabBarController
         
         return true
     }
