@@ -59,3 +59,22 @@ func makeSymbolImageView(
     
     return UIImageView(image: image)
 }
+
+func makeClearButton(withText text: String) -> UIButton {
+    let button = UIButton()
+    button.configuration = .plain()
+    
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.setTitle(text, for: .normal)
+    button.configuration?.contentInsets = NSDirectionalEdgeInsets(
+        top: 8, leading: 16, bottom: 8, trailing: 16
+    )
+    button.layer.cornerRadius = 40 / 2
+    button.layer.borderWidth = 0.5
+    
+    button.setTitleColor(.label, for: .normal)
+    button.layer.borderColor = UIColor.label.cgColor
+    button.backgroundColor = .systemBackground
+    
+    return button
+}
