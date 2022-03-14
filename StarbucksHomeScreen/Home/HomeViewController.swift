@@ -31,12 +31,7 @@ class HomeViewController: StarbucksViewController {
             title: "Spend at least $15 for 50 Bonus Stars",
             subtitle: "Collect 50 Bonus Stars when you spend at least $15 pre-tax.",
             imageName: "bonus"
-        ),
-        PlaceholderViewController("Star balance"),
-        PlaceholderViewController("Bonus stars"),
-        PlaceholderViewController("Try these"),
-        PlaceholderViewController("Welcome back"),
-        PlaceholderViewController("Uplifting")
+        )
     ]
     
     // MARK: - View Lifecycle
