@@ -19,6 +19,7 @@
 		108FCC6D27DDF66600867467 /* Factories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108FCC6C27DDF66600867467 /* Factories.swift */; };
 		10F9A67427DF7E48003519DC /* RewardTileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9A67327DF7E48003519DC /* RewardTileViewController.swift */; };
 		10F9A67627DF7E61003519DC /* RewardTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9A67527DF7E61003519DC /* RewardTileView.swift */; };
+		10F9A67827DF805C003519DC /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9A67727DF805C003519DC /* BalanceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		108FCC6C27DDF66600867467 /* Factories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factories.swift; sourceTree = "<group>"; };
 		10F9A67327DF7E48003519DC /* RewardTileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardTileViewController.swift; sourceTree = "<group>"; };
 		10F9A67527DF7E61003519DC /* RewardTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardTileView.swift; sourceTree = "<group>"; };
+		10F9A67727DF805C003519DC /* BalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			children = (
 				10F9A67327DF7E48003519DC /* RewardTileViewController.swift */,
 				10F9A67527DF7E61003519DC /* RewardTileView.swift */,
+				10F9A67727DF805C003519DC /* BalanceView.swift */,
 			);
 			path = Rewards;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			files = (
 				108FCC6B27DDF02900867467 /* StarbucksViewControllers.swift in Sources */,
 				1079C6CE27DE10B2006F3A21 /* HomeHeaderView.swift in Sources */,
+				10F9A67827DF805C003519DC /* BalanceView.swift in Sources */,
 				10184F4427DF365D001086EE /* TileView.swift in Sources */,
 				106FEA3F27DDEE9100F9C6A1 /* HomeViewController.swift in Sources */,
 				10F9A67427DF7E48003519DC /* RewardTileViewController.swift in Sources */,
