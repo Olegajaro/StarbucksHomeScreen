@@ -12,6 +12,7 @@
 		10184F4427DF365D001086EE /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10184F4327DF365D001086EE /* TileView.swift */; };
 		10212EB527E11314005A3B2A /* StarAndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10212EB427E11314005A3B2A /* StarAndPoints.swift */; };
 		10212EB727E11550005A3B2A /* StarRewardsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10212EB627E11550005A3B2A /* StarRewardsRow.swift */; };
+		10212EB927E118F0005A3B2A /* StarRewardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10212EB827E118F0005A3B2A /* StarRewardsView.swift */; };
 		102FA21527E0DE0900C7225F /* RewardsGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102FA21427E0DE0900C7225F /* RewardsGraphView.swift */; };
 		106FEA3B27DDEE9100F9C6A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106FEA3A27DDEE9100F9C6A1 /* AppDelegate.swift */; };
 		106FEA3F27DDEE9100F9C6A1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106FEA3E27DDEE9100F9C6A1 /* HomeViewController.swift */; };
@@ -31,6 +32,7 @@
 		10184F4327DF365D001086EE /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		10212EB427E11314005A3B2A /* StarAndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarAndPoints.swift; sourceTree = "<group>"; };
 		10212EB627E11550005A3B2A /* StarRewardsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRewardsRow.swift; sourceTree = "<group>"; };
+		10212EB827E118F0005A3B2A /* StarRewardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRewardsView.swift; sourceTree = "<group>"; };
 		102FA21427E0DE0900C7225F /* RewardsGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsGraphView.swift; sourceTree = "<group>"; };
 		106FEA3727DDEE9100F9C6A1 /* StarbucksHomeScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarbucksHomeScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		106FEA3A27DDEE9100F9C6A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				10212EB427E11314005A3B2A /* StarAndPoints.swift */,
 				10212EB627E11550005A3B2A /* StarRewardsRow.swift */,
+				10212EB827E118F0005A3B2A /* StarRewardsView.swift */,
 			);
 			path = StarRewards;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				10184F4227DF3629001086EE /* TileViewController.swift in Sources */,
 				108FCC6D27DDF66600867467 /* Factories.swift in Sources */,
 				10F9A67627DF7E61003519DC /* RewardsTileView.swift in Sources */,
+				10212EB927E118F0005A3B2A /* StarRewardsView.swift in Sources */,
 				10184F4027DF2BCE001086EE /* PlaceholderViewController.swift in Sources */,
 				106FEA3B27DDEE9100F9C6A1 /* AppDelegate.swift in Sources */,
 			);
