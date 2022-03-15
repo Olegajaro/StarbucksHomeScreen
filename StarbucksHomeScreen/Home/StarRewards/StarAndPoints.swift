@@ -45,7 +45,7 @@ extension StarAndPoints {
         
         NSLayoutConstraint.activate([
             pointsLabel.topAnchor.constraint(
-                equalTo: topAnchor, constant: 2
+                equalTo: topAnchor
             ),
             pointsLabel.trailingAnchor.constraint(
                 equalTo: starView.leadingAnchor, constant: -2

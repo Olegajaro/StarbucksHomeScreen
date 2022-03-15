@@ -59,6 +59,8 @@ class HomeViewController: StarbucksViewController {
 // MARK: - Style and Layout function
 extension HomeViewController {
     private func style() {
+        view.backgroundColor = .backgroundWhite
+        
         headerView.translatesAutoresizingMaskIntoConstraints = false
         headerView.backgroundColor = .systemBackground
         
