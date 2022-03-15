@@ -17,7 +17,7 @@ class HomeViewController: StarbucksViewController {
     var headerViewTopConstraint: NSLayoutConstraint?
         
     let tiles = [
-        RewardTileViewController(),
+        RewardsTileViewController(),
         TileViewController(
             title: "Breakfast made meatless",
             subtitle: "Try the Beyond Meat, Cheddar & Egg Breakfast Sandwich. Vegetarian and protein-packed.",
@@ -63,8 +63,8 @@ extension HomeViewController {
         headerView.backgroundColor = .systemBackground
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 8
     }
@@ -82,7 +82,9 @@ extension HomeViewController {
         }
         
         // headerView constraint
-        headerViewTopConstraint = headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        headerViewTopConstraint = headerView.topAnchor.constraint(
+            equalTo: view.safeAreaLayoutGuide.topAnchor
+        )
         
         NSLayoutConstraint.activate([
             headerViewTopConstraint!,
@@ -129,10 +131,13 @@ extension HomeViewController: UIScrollViewDelegate {
         }
         
         UIViewPropertyAnimator.runningPropertyAnimator(
-            withDuration: 0.3, delay: 0, options: []) {
-                self.headerViewTopConstraint?.constant = shouldSnap ? -labelHeight : 0
-                self.view.layoutIfNeeded()
-            }
+            withDuration: 0.3,
+            delay: 0,
+            options: []
+        ) {
+            self.headerViewTopConstraint?.constant = shouldSnap ? -labelHeight : 0
+            self.view.layoutIfNeeded()
+        }
     }
 }
 

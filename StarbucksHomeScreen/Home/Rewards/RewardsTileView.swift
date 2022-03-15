@@ -1,5 +1,5 @@
 //
-//  RewardTileView.swift
+//  RewardsTileView.swift
 //  StarbucksHomeScreen
 //
 //  Created by Олег Федоров on 14.03.2022.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class RewardTileView: UIView {
+class RewardsTileView: UIView {
     
     let balanceView = BalanceView()
     var rewardsButton = UIButton(type: .system)
-    let rewardsGraphView = UIView()
+    let rewardsGraphView = RewardsGraphView()
     let starRewardsView = UIView()
     var detailsButton = makeClearButton(withText: "Details")
     
@@ -29,9 +29,17 @@ class RewardTileView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // Redraw our graph once we know our actual device width & height
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        rewardsGraphView.actualFrameWidth = frame.width
+        rewardsGraphView.drawRewardsGraph()
+    }
 }
 
-extension RewardTileView {
+extension RewardsTileView {
     // MARK: - Style method
     private func style() {
         balanceView.translatesAutoresizingMaskIntoConstraints = false
@@ -39,8 +47,6 @@ extension RewardTileView {
         starRewardsView.translatesAutoresizingMaskIntoConstraints = false
         
         makeRewardsOptionButton()
-        
-        rewardsGraphView.backgroundColor = .systemRed
     }
     
     private func makeRewardsOptionButton() {
@@ -100,16 +106,7 @@ extension RewardTileView {
                 multiplier: 1
             ),
             rewardsGraphView.centerXAnchor.constraint(equalTo: centerXAnchor),
-//            rewardsGraphView.widthAnchor.constraint(equalToConstant: frame.width)
-            rewardsGraphView.heightAnchor.constraint(equalToConstant: 100),
-            rewardsGraphView.leadingAnchor.constraint(
-                equalToSystemSpacingAfter: leadingAnchor,
-                multiplier: 2
-            ),
-            trailingAnchor.constraint(
-                equalToSystemSpacingAfter: rewardsGraphView.trailingAnchor,
-                multiplier: 2
-            )
+            rewardsGraphView.widthAnchor.constraint(equalToConstant: frame.width)
         ])
         
         NSLayoutConstraint.activate([
