@@ -10,6 +10,7 @@ import UIKit
 class HomeViewController: StarbucksViewController {
 
     // MARK: - UIElements
+    let topSpacerView = UIView()
     let headerView = HomeHeaderView()
     let scrollView = UIScrollView()
     let stackView = UIStackView()
@@ -60,9 +61,10 @@ class HomeViewController: StarbucksViewController {
 extension HomeViewController {
     private func style() {
         view.backgroundColor = .backgroundWhite
+        topSpacerView.backgroundColor = .white
         
+        topSpacerView.translatesAutoresizingMaskIntoConstraints = false
         headerView.translatesAutoresizingMaskIntoConstraints = false
-        headerView.backgroundColor = .systemBackground
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -72,6 +74,7 @@ extension HomeViewController {
     }
     
     private func layout() {
+        view.addSubview(topSpacerView)
         view.addSubview(headerView)
         view.addSubview(scrollView)
         
@@ -83,11 +86,18 @@ extension HomeViewController {
             tile.didMove(toParent: self)
         }
         
+        // topSpacerView constraints
+        NSLayoutConstraint.activate([
+            topSpacerView.topAnchor.constraint(equalTo: view.topAnchor),
+            topSpacerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            topSpacerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            topSpacerView.heightAnchor.constraint(equalToConstant: 100)
+        ])
+        
         // headerView constraint
         headerViewTopConstraint = headerView.topAnchor.constraint(
             equalTo: view.safeAreaLayoutGuide.topAnchor
         )
-        
         NSLayoutConstraint.activate([
             headerViewTopConstraint!,
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

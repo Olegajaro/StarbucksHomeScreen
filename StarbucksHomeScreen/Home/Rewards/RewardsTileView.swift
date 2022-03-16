@@ -17,10 +17,6 @@ class RewardsTileView: UIView {
     
     var heightConstraint: NSLayoutConstraint?
     
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: 100, height: 300)
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
