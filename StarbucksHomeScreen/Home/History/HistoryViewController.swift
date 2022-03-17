@@ -69,7 +69,7 @@ extension HistoryViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.register(HistoryViewCell.self, forCellReuseIdentifier: cellID)
         tableView.sectionHeaderTopPadding = 0
         tableView.separatorStyle = .none
         
@@ -115,15 +115,12 @@ extension HistoryViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: cellID,
             for: indexPath
-        )
+        ) as! HistoryViewCell
         
         let transaction = sections[indexPath.section].transactions[indexPath.row]
         
-        var content = cell.defaultContentConfiguration()
-        content.text = transaction.amount
-        content.secondaryText = transaction.date.description
+        cell.transaction = transaction
         
-        cell.contentConfiguration = content
         return cell
     }
 }
