@@ -17,7 +17,6 @@ private let cellID = "Cell"
 class HistoryViewController: UIViewController {
     
     let tableView = UITableView()
-    let numbers = [1, 2, 3, 4]
     var sections: [HistorySection] = []
     
     override func viewDidLoad() {
@@ -71,6 +70,8 @@ extension HistoryViewController {
         tableView.dataSource = self
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.sectionHeaderTopPadding = 0
+        tableView.separatorStyle = .none
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
@@ -133,5 +134,27 @@ extension HistoryViewController: UITableViewDelegate {
                    didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        heightForHeaderInSection section: Int
+    ) -> CGFloat {
+        80
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
+        80
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        willDisplayHeaderView view: UIView,
+        forSection section: Int
+    ) {
+        view.tintColor = .tileBrown
     }
 }
