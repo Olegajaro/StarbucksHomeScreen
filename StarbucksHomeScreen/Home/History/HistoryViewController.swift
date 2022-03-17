@@ -7,25 +7,59 @@
 
 import UIKit
 
+struct HistorySection {
+    let title: String
+    let transactions: [Transaction]
+}
+
 private let cellID = "Cell"
 
 class HistoryViewController: UIViewController {
     
     let tableView = UITableView()
     let numbers = [1, 2, 3, 4]
+    var sections: [HistorySection] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
-//        NetworkService.shared.fetchTransactions { result in
-//            switch result {
-//            case .success(let transactions):
-//                print(transactions)
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
+        testData()
+    }
+    
+    func testData() {
+        let tx1 = Transaction(
+            id: 1, type: "redeemable", amount: "1",
+            description: nil, date: Date()
+        )
+        let tx2 = Transaction(
+            id: 1, type: "redeemable", amount: "2",
+            description: nil, date: Date()
+        )
+        let tx22 = Transaction(
+            id: 1, type: "redeemable", amount: "22",
+            description: nil, date: Date()
+        )
+        let tx3 = Transaction(
+            id: 1, type: "redeemable", amount: "3",
+            description: nil, date: Date()
+        )
+        let tx33 = Transaction(
+            id: 1, type: "redeemable", amount: "33",
+            description: nil, date: Date()
+        )
+        let tx333 = Transaction(
+            id: 1, type: "redeemable", amount: "333",
+            description: nil, date: Date()
+        )
+        
+        let firstSection = HistorySection(title: "July", transactions: [tx1])
+        let secondSection = HistorySection(title: "June", transactions: [tx2, tx22])
+        let thirdSection = HistorySection(title: "May", transactions: [tx3, tx33, tx333])
+        
+        sections.append(firstSection)
+        sections.append(secondSection)
+        sections.append(thirdSection)
     }
 }
 
@@ -60,9 +94,18 @@ extension HistoryViewController {
 
 // MARK: - UITableViewDataSource
 extension HistoryViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        sections.count
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   titleForHeaderInSection section: Int) -> String? {
+        sections[section].title
+    }
+    
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        numbers.count
+        sections[section].transactions.count
     }
     
     func tableView(_ tableView: UITableView,
@@ -73,8 +116,11 @@ extension HistoryViewController: UITableViewDataSource {
             for: indexPath
         )
         
+        let transaction = sections[indexPath.section].transactions[indexPath.row]
+        
         var content = cell.defaultContentConfiguration()
-        content.text = numbers[indexPath.row].description
+        content.text = transaction.amount
+        content.secondaryText = transaction.date.description
         
         cell.contentConfiguration = content
         return cell
