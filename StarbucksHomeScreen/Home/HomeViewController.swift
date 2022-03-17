@@ -51,6 +51,15 @@ class HomeViewController: StarbucksViewController {
         setupTabBarImage(imageName: "house.fill", title: "Home")
         style()
         layout()
+        
+        NetworkService.shared.fetchHistory { result in
+            switch result {
+            case .success(let transactions):
+                print(transactions)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     // MARK: - Setup Views
