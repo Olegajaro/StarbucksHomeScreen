@@ -7,58 +7,24 @@
 
 import UIKit
 
-struct HistorySection {
-    let title: String
-    let transactions: [Transaction]
-}
-
 private let cellID = "Cell"
 
 class HistoryViewController: UIViewController {
     
     let tableView = UITableView()
-    var sections: [HistorySection] = []
+    var viewModel: HistoryViewModel? {
+        didSet {
+            viewModel?.fetchTransactions {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel = HistoryViewModel()
         setup()
-        testData()
-    }
-    
-    func testData() {
-        let tx1 = Transaction(
-            id: 1, type: "redeemable", amount: "1",
-            description: nil, date: Date()
-        )
-        let tx2 = Transaction(
-            id: 1, type: "redeemable", amount: "2",
-            description: nil, date: Date()
-        )
-        let tx22 = Transaction(
-            id: 1, type: "redeemable", amount: "22",
-            description: nil, date: Date()
-        )
-        let tx3 = Transaction(
-            id: 1, type: "redeemable", amount: "3",
-            description: nil, date: Date()
-        )
-        let tx33 = Transaction(
-            id: 1, type: "redeemable", amount: "33",
-            description: nil, date: Date()
-        )
-        let tx333 = Transaction(
-            id: 1, type: "redeemable", amount: "333",
-            description: nil, date: Date()
-        )
-        
-        let firstSection = HistorySection(title: "July", transactions: [tx1])
-        let secondSection = HistorySection(title: "June", transactions: [tx2, tx22])
-        let thirdSection = HistorySection(title: "May", transactions: [tx3, tx33, tx333])
-        
-        sections.append(firstSection)
-        sections.append(secondSection)
-        sections.append(thirdSection)
     }
 }
 
@@ -96,28 +62,43 @@ extension HistoryViewController {
 // MARK: - UITableViewDataSource
 extension HistoryViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        sections.count
+        guard
+            let numberOfSection = viewModel?.numberOfSection()
+        else { return 0}
+        
+        return numberOfSection
     }
     
     func tableView(_ tableView: UITableView,
                    titleForHeaderInSection section: Int) -> String? {
-        sections[section].title
+        guard
+            let titleSection = viewModel?.titleForHeaderSection(section)
+        else { return "" }
+        
+        return titleSection
     }
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        sections[section].transactions.count
+        guard
+            let numberOfRows = viewModel?.numberOfRowsInSection(section)
+        else { return 0 }
+        
+        return numberOfRows
     }
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: cellID,
-            for: indexPath
-        ) as! HistoryViewCell
+        guard
+            let viewModel = viewModel,
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: cellID,
+                for: indexPath
+            ) as? HistoryViewCell
+        else { return UITableViewCell() }
         
-        let transaction = sections[indexPath.section].transactions[indexPath.row]
+        let transaction = viewModel.getTransaction(forIndexPath: indexPath)
         
         cell.transaction = transaction
         
