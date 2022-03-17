@@ -45,13 +45,10 @@ extension HomeHeaderView {
         greeting.lineBreakMode = .byWordWrapping
         
         makeInboxButton()
-        
-        historyButton.translatesAutoresizingMaskIntoConstraints = false
+        makeHistoryButton()
         historyButton.addTarget(self,
                                 action: #selector(historyButtonTapped),
                                 for: .touchUpInside)
-        historyButton.setTitle("History", for: .normal)
-        historyButton.tintColor = .secondaryLabel
     }
     
     private func layout() {
@@ -98,6 +95,7 @@ extension HomeHeaderView {
         ])
     }
     
+    // MARK: - Actions
     @objc func historyButtonTapped() {
         delegate?.showHistoryView()
     }
@@ -106,14 +104,22 @@ extension HomeHeaderView {
 // MARK: - Factories
 extension HomeHeaderView {
     private func makeInboxButton() {
-        inboxButton.translatesAutoresizingMaskIntoConstraints = false
+        makeButton(button: inboxButton, systemName: "envelope", text: " Inbox")
+    }
+    
+    private func makeHistoryButton() {
+        makeButton(button: historyButton, systemName: "calendar", text: " History")
+    }
+    
+    private func makeButton(button: UIButton, systemName: String, text: String) {
+        button.translatesAutoresizingMaskIntoConstraints = false
         
         let configuration = UIImage.SymbolConfiguration(scale: .large)
-        let image = UIImage(systemName: "envelope",
+        let image = UIImage(systemName: systemName,
                             withConfiguration: configuration)
         
-        inboxButton.setImage(image, for: .normal)
-        inboxButton.setTitle(" Inbox", for: .normal)
-        inboxButton.tintColor = .secondaryLabel
+        button.setImage(image, for: .normal)
+        button.setTitle(text, for: .normal)
+        button.tintColor = .secondaryLabel
     }
 }
