@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HomeHeaderViewDelegate: AnyObject {
-    func showHistoryView()
+    func didTapHistoryButton()
 }
 
 class HomeHeaderView: UIView {
@@ -80,35 +80,48 @@ extension HomeHeaderView {
             ),
             inboxButton.leadingAnchor.constraint(
                 equalToSystemSpacingAfter: leadingAnchor,
-                multiplier: 2
+                multiplier: 1
             ),
             bottomAnchor.constraint(
                 equalToSystemSpacingBelow: inboxButton.bottomAnchor,
                 multiplier: 1
+            ),
+            inboxButton.widthAnchor.constraint(
+                equalTo: widthAnchor,
+                multiplier: 0.25
             )
         ])
         
         // history
         NSLayoutConstraint.activate([
-            historyButton.centerYAnchor.constraint(equalTo: inboxButton.centerYAnchor),
-            historyButton.leadingAnchor.constraint(equalToSystemSpacingAfter: inboxButton.trailingAnchor, multiplier: 2)
+            historyButton.centerYAnchor.constraint(
+                equalTo: inboxButton.centerYAnchor
+            ),
+            historyButton.leadingAnchor.constraint(
+                equalToSystemSpacingAfter: inboxButton.trailingAnchor,
+                multiplier: 2
+            ),
+            historyButton.widthAnchor.constraint(
+                equalTo: widthAnchor,
+                multiplier: 0.25
+            )
         ])
     }
     
     // MARK: - Actions
     @objc func historyButtonTapped() {
-        delegate?.showHistoryView()
+        delegate?.didTapHistoryButton()
     }
 }
 
 // MARK: - Factories
 extension HomeHeaderView {
     private func makeInboxButton() {
-        makeButton(button: inboxButton, systemName: "envelope", text: " Inbox")
+        makeButton(button: inboxButton, systemName: "envelope", text: "  Inbox")
     }
     
     private func makeHistoryButton() {
-        makeButton(button: historyButton, systemName: "calendar", text: " History")
+        makeButton(button: historyButton, systemName: "calendar", text: "  History")
     }
     
     private func makeButton(button: UIButton, systemName: String, text: String) {

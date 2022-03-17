@@ -31,6 +31,9 @@ class HistoryViewController: UIViewController {
 // MARK: - Setup Table View
 extension HistoryViewController {
     private func setup() {
+        title = "History"
+        navigationController?.navigationBar.backgroundColor = .backgroundWhite
+        
         tableView.backgroundColor = .systemBackground
         tableView.delegate = self
         tableView.dataSource = self
