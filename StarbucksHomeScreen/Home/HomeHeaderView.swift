@@ -7,11 +7,18 @@
 
 import UIKit
 
+protocol HomeHeaderViewDelegate: AnyObject {
+    func showHistoryView()
+}
+
 class HomeHeaderView: UIView {
     
     // MARK: - UIElements
     let greeting = UILabel()
     let inboxButton = UIButton(type: .system)
+    let historyButton = UIButton(type: .system)
+    
+    weak var delegate: HomeHeaderViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -38,11 +45,19 @@ extension HomeHeaderView {
         greeting.lineBreakMode = .byWordWrapping
         
         makeInboxButton()
+        
+        historyButton.translatesAutoresizingMaskIntoConstraints = false
+        historyButton.addTarget(self,
+                                action: #selector(historyButtonTapped),
+                                for: .touchUpInside)
+        historyButton.setTitle("History", for: .normal)
+        historyButton.tintColor = .secondaryLabel
     }
     
     private func layout() {
         addSubview(greeting)
         addSubview(inboxButton)
+        addSubview(historyButton)
         
         // greeting
         NSLayoutConstraint.activate([
@@ -75,6 +90,16 @@ extension HomeHeaderView {
                 multiplier: 1
             )
         ])
+        
+        // history
+        NSLayoutConstraint.activate([
+            historyButton.centerYAnchor.constraint(equalTo: inboxButton.centerYAnchor),
+            historyButton.leadingAnchor.constraint(equalToSystemSpacingAfter: inboxButton.trailingAnchor, multiplier: 2)
+        ])
+    }
+    
+    @objc func historyButtonTapped() {
+        delegate?.showHistoryView()
     }
 }
 

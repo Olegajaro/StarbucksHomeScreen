@@ -51,15 +51,6 @@ class HomeViewController: StarbucksViewController {
         setupTabBarImage(imageName: "house.fill", title: "Home")
         style()
         layout()
-        
-        NetworkService.shared.fetchHistory { result in
-            switch result {
-            case .success(let transactions):
-                print(transactions)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
     }
     
     // MARK: - Setup Views
@@ -80,6 +71,7 @@ extension HomeViewController {
         
         topSpacerView.translatesAutoresizingMaskIntoConstraints = false
         headerView.translatesAutoresizingMaskIntoConstraints = false
+        headerView.delegate = self
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -193,4 +185,9 @@ extension HomeViewController: UIScrollViewDelegate {
     }
 }
 
-
+// MARK: - HomeHeaderViewDelegate
+extension HomeViewController: HomeHeaderViewDelegate {
+    func showHistoryView() {
+        present(HistoryViewController(), animated: true)
+    }
+}

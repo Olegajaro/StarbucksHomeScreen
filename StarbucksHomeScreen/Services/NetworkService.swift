@@ -40,8 +40,9 @@ class NetworkService {
     
     private init() { }
     
-    func fetchHistory(completion: @escaping (Result<[Transaction], Error>) -> Void) {
-        
+    func fetchTransactions(
+        completion: @escaping (Result<[Transaction], Error>) -> Void
+    ) {
         guard
             let url = URL(string: historyURL)
         else { return }
