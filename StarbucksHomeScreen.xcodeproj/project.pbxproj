@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10184F4027DF2BCE001086EE /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10184F3F27DF2BCE001086EE /* PlaceholderViewController.swift */; };
 		10184F4227DF3629001086EE /* TileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10184F4127DF3629001086EE /* TileViewController.swift */; };
 		10184F4427DF365D001086EE /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10184F4327DF365D001086EE /* TileView.swift */; };
 		10212EB527E11314005A3B2A /* StarAndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10212EB427E11314005A3B2A /* StarAndPoints.swift */; };
@@ -31,7 +30,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		10184F3F27DF2BCE001086EE /* PlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 		10184F4127DF3629001086EE /* TileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileViewController.swift; sourceTree = "<group>"; };
 		10184F4327DF365D001086EE /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
 		10212EB427E11314005A3B2A /* StarAndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarAndPoints.swift; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 				10F9A67227DF7DEC003519DC /* Rewards */,
 				106FEA3E27DDEE9100F9C6A1 /* HomeViewController.swift */,
 				1079C6CD27DE10B2006F3A21 /* HomeHeaderView.swift */,
-				10184F3F27DF2BCE001086EE /* PlaceholderViewController.swift */,
 				10184F4127DF3629001086EE /* TileViewController.swift */,
 				10184F4327DF365D001086EE /* TileView.swift */,
 			);
@@ -254,7 +251,6 @@
 				108FCC6D27DDF66600867467 /* Factories.swift in Sources */,
 				10F9A67627DF7E61003519DC /* RewardsTileView.swift in Sources */,
 				10212EB927E118F0005A3B2A /* StarRewardsView.swift in Sources */,
-				10184F4027DF2BCE001086EE /* PlaceholderViewController.swift in Sources */,
 				10DD832027E3215F00B5DCBC /* HistoryViewController.swift in Sources */,
 				106FEA3B27DDEE9100F9C6A1 /* AppDelegate.swift in Sources */,
 			);

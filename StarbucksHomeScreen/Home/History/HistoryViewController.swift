@@ -34,7 +34,9 @@ extension HistoryViewController {
         title = "History"
         navigationController?.navigationBar.backgroundColor = .backgroundWhite
         
-        tableView.backgroundColor = .systemBackground
+        view.backgroundColor = .backgroundWhite
+        
+        tableView.backgroundColor = .backgroundWhite
         tableView.delegate = self
         tableView.dataSource = self
         
